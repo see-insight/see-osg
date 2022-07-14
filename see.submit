@@ -1,0 +1,24 @@
+universe    = vanilla
+
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/osgvo-ubuntu-20.04:latest"
+
+Arguments = $(Cluster) $(Process)
+ 
+executable  = run_see.sh
+
+transfer_input_files = see-segment.tgz,run_see.sh
+
+#log         = job.log
+#output      = job.out
+#error       = job.error
+
+log = ./output/job_$(Cluster)_$(Process).log
+error = ./output/job_$(Cluster)_$(Process).err
+output = ./output/job_$(Cluster)_$(Process).out
+
+request_cpus    = 1 
+request_memory  = 2GB
+request_disk    = 2GB
+
+queue 500
+
